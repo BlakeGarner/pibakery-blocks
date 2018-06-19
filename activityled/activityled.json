@@ -1,0 +1,32 @@
+{
+	"name": "activityled",
+	"text": "Redirect ACT LED to GPIO\\nGPIO Pin (BCM): %1\\nActivity Function: %2",
+	"script": "activityled.sh",
+    "args": [
+        {
+            "type": "number",
+            "default": "26",
+            "maxLength": 3
+        },
+		{
+			"type": "menu",
+			"options": ["mmc0", "mmc1", "[input]", "heartbeat", "cpu0", 
+				"cpu1", "cpu2", "cpu3", "backlight", "default-on", "rfkill0",
+				"rfkill1", "panic", "timer", "oneshot", "none", "gpio", 
+				"kbd-scrolllock", "kbd-numlock", "kbd-capslock", 
+				"kbd-kanalock", "kbd-shiftlock", "kbd-altgrlock", 
+				"kbd-ctrllock", "kbd-altlock", "kbd-shiftllock", 
+				"kbd-shiftrlock", "kbd-ctrlllock", "kbd-ctrlrlock"]
+		}
+    ],
+	"network": false,
+	"continue": true,
+	"type": "setting",
+	"category":"setting",
+	"supportedOperatingSystems": [
+		"raspbian-pibakery.img",
+		"raspbian-lite-pibakery.img"
+	],
+	"shortDescription":"Redirect ACT LED to GPIO." ,
+	"longDescription":"Redirect the built-in activity LED (ACT) to one of the GPIO pins which can then be wired to an LED anode (the cathode goes to ground via a 150 ohm resistor) and mounted somewhere visible.\nThe first argument is the GPIO pin to use (the BCM pin, not the physical pin).\nThe second argument is the style of activity to display. By default this is mmc0 (the SD card) but some other useful ones can be heartbeat, default-on, cpu0 or timer."
+}

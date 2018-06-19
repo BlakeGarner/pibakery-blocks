@@ -1,0 +1,30 @@
+{
+	"name": "shutdownbutton",
+	"text": "Set system halt button\\nGPIO Pin (BCM): %1\\nPull-up/down: %2\\nEdge: %3",
+	"script": "shutdownbutton.sh",
+    "args": [
+        {
+            "type": "number",
+            "default": "17",
+            "maxLength": 3
+        },
+		{
+			"type": "menu",
+			"options": ["up", "down", "off"]
+		},
+		{
+			"type": "menu",
+			"options": ["falling", "rising"]
+		}
+    ],
+	"network": true,
+	"continue": true,
+	"type": "setting",
+	"category":"setting",
+	"supportedOperatingSystems": [
+		"raspbian-pibakery.img",
+		"raspbian-lite-pibakery.img"
+	],
+	"shortDescription":"Register a GPIO pin for a system halt button to shut down the Pi safely." ,
+	"longDescription":"Provides the user an easy way to shutdown the Pi safely without needing a keyboard or SSH login.\nThe first argument is the GPIO pin of the button.\nThe second argument specifies whether a built-in pull-up or pull-down resistor should be applied.\nThe third argument specifies whether a button push creates a falling or rising edge. Pull-up buttons would have a falling edge, pull-downs a rising."
+}
